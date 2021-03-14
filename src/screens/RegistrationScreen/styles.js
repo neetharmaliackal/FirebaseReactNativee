@@ -1,11 +1,12 @@
 import {StyleSheet} from 'react-native';
 
+
 export default StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center'
-    },
-    title: {
+
+    container:{
+        flex:1,
+        alignItems: 'center',
+          // title: {
 
     },
     logo: {
@@ -55,4 +56,10 @@ export default StyleSheet.create({
         fontWeight: "bold",
         fontSize: 16
     }
+   
+      
+    
+
 })
+
+
