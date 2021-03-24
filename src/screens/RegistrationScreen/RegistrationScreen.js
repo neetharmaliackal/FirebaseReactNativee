@@ -3,6 +3,7 @@ import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import SocialButton from '../../components/SocialButton';
 import styles from './styles';
+import { auth, signInWithGoogle,signInWithFacebook } from '../../firebase/config';
 
 export default function RegistrationScreen({navigation}) {
     const [fullName, setFullName] = useState('')
@@ -71,14 +72,14 @@ export default function RegistrationScreen({navigation}) {
                 <View style={styles.footerView}>
                     <Text style={styles.footerText}>Already got an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log in</Text></Text>
                 </View>
-                {Platform.OS === 'android' ? (
+                {/* {Platform.OS === 'android' ? ( */}
                         <View>
                         <SocialButton
                             buttonTitle="Sign In with Facebook"
                             btnType="facebook"
                             color="#4867aa"
                             backgroundColor="#e6eaf4"
-                            // onPress={() => fbLogin()}
+                            onPress={() => signInWithFacebook()}
                         />
 
                         <SocialButton
@@ -86,10 +87,10 @@ export default function RegistrationScreen({navigation}) {
                             btnType="google"
                             color="#de4d41"
                             backgroundColor="#f5e7ea"
-                            // onPress={() => googleLogin()}
+                            onPress={() => signInWithGoogle()}
                         />
                         </View>
-                    ) : null}
+                    {/* // ) : null} */}
             </KeyboardAwareScrollView>
         </View>
     )

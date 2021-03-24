@@ -20,71 +20,9 @@ import FormButton from '../../components/FormButton';
 import SocialButton from '../../components/SocialButton';
 // import {AuthContext} from '../navigation/AuthProvider';
 import styles from './styles';
-import { auth, signInWithGoogle } from '../../firebase/config';
+import { auth, signInWithGoogle,signInWithFacebook } from '../../firebase/config';
 // import Home from '../HomeScreen/HomeScreen';
 
-
-
-// export default function LoginScreen() {
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-
-//   //functions
-
-//   const onFooterLinkPress = () => {
-//     navigation.navigate('Registration')
-//   };
-
-//   const onLoginPress = () => {
-//     console.log('clicked on login button');
-//   };
-
-//   //html render
-
-//   return (
-//     <View style={styles.container}>
-//       <KeyboardAwareScrollView
-//         style={{flex: 1, width: '100%'}}
-//         keyboardShouldPersistTaps="always">
-//         <Image styles={styles.logo} source={require('../../../assets/icon.png')} />
-
-//         <TextInput
-//           style={styles.input}
-//           placeholder="E-mail"
-//           placeholderTextColor="#aaaaaa"
-//           onChangeText={(text) => setEmail(text)}
-//           value={email}
-//           underlineColorAndroid="transparent"
-//           autoCapitalize="none"
-//         />
-
-//         <TextInput
-//           style={styles.input}
-//           placeholderTextColor="#aaaaaa"
-//           secureTextEntry
-//           placeholder="Password"
-//           onChangeText={(text) => setPassword(text)}
-//           value={password}
-//           underlineColorAndroid="transparent"
-//           autoCapitalize="none"
-//         />
-
-//         <TouchableOpacity style={styles.button} onPress={() => onLoginPress()}>
-//           <Text style={styles.buttonTitle}>Log In</Text>
-//         </TouchableOpacity>
-
-//         <View style={styles.footerView}>
-//           <Text style={styles.footerText}>
-//             Don't have an account?{' '}
-//             <Text onPress={onFooterLinkPress} style={styles.footerLink}>
-//               Sign up
-//             </Text>
-//           </Text>
-//         </View>
-//       </KeyboardAwareScrollView>
-//     </View>
-//   );
-// }
 
 
 
@@ -94,9 +32,14 @@ const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const TestFunction= () => {
-    navigation.navigate('HomeScreen');
-  }
+    if(email=='' ||  password=='') {
  
+           alert('Please enter all the values');
+         }else{
+         navigation.navigate('HomeScreen');
+       }
+  }
+  
   // const {login, googleLogin, fbLogin} = useContext(AuthContext);
 
   return (
@@ -131,14 +74,14 @@ const LoginScreen = ({navigation}) => {
         <Text style={styles.navButtonText}>Forgot Password?</Text>
       </TouchableOpacity>
 
-      {Platform.OS === 'android' ? (
+      {/* {Platform.OS === 'android' ? ( */}
         <View>
           <SocialButton
             buttonTitle="Sign In with Facebook"
             btnType="facebook"
             color="#4867aa"
             backgroundColor="#e6eaf4"
-            // onPress={() => fbLogin()}
+            onPress={() => signInWithFacebook()}
           />
 
           <SocialButton
@@ -149,7 +92,7 @@ const LoginScreen = ({navigation}) => {
             onPress={() => signInWithGoogle()}
           />
         </View>
-      ) : null}
+      {/* ) : null} */}
 
       <TouchableOpacity
         style={styles.forgotButton}
