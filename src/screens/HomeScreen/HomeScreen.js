@@ -4,16 +4,16 @@ import {TextInput,ScrollView,TouchableOpacity} from 'react-native-gesture-handle
 import { LinearGradient } from 'expo-linear-gradient'
 
 const  HomeScreen = ({navigation}) => {
-    const privacy= () => {
-        navigation.navigate('Privacy');
-      }
+    // const privacy= () => {
+    //     navigation.navigate('Privacy');
+    //   }
      
-        const Contacts= () => {
-            navigation.navigate('Contacts');
-        }
-        const Explore= () => {
-            navigation.navigate('Explore');
-        }
+    //     const Contacts= () => {
+    //         navigation.navigate('Contacts');
+    //     }
+    //     const Explore= () => {
+    //         navigation.navigate('Explore');
+    //     }
         const Todo= () => {
             navigation.navigate('Todo');
         }
@@ -38,7 +38,7 @@ const  HomeScreen = ({navigation}) => {
                paddingHorizontal:20
            }}>
                
-               <View style={{
+               {/* <View style={{
                    flexDirection:"row",
                    alignItems:"center",
                    marginTop:25,
@@ -65,7 +65,7 @@ const  HomeScreen = ({navigation}) => {
                         // accessibilityLabel="Learn more about this purple button"
                         />
                    </View>
-               </View>
+               </View> */}
            </View>
            <LinearGradient
             colors={["rgba(0,164,109,0.4)", "transparent"]}
